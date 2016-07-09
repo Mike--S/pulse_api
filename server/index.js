@@ -26,11 +26,10 @@ app.use(function (req, res, next) {
 app.get('/api/patient', function (req, res) {
   res.send(patientData.patientDoctors);
   console.log(patientData.patientDoctors);
-  next();
 });
 
 app.get('*', function (req, res)  {
-  console.log('df');
+  res.sendFile('index.html', { root: __dirname + '/../'});
 });
 
 app.listen(process.env.PORT || 8080);
