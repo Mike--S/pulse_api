@@ -1,4 +1,3 @@
-
 var patientData = require('./mock/patient');
 
 /* eslint no-console: 0 */

@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": ""
+    "start": "node server/index.js"
   },
   "devEngines": {},
   "engines": {},
