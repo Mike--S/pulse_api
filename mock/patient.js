@@ -11,6 +11,25 @@ var patientDoctors = {
   ]
 };
 
+var fio = 'Еремин Виталий Викторович';
+
+var devices = [
+  {
+    id: 1111,
+    name: 'Тонометр'
+  },
+  {
+    id: 2222,
+    name: 'Глюкометр'
+  },
+  {
+    id: 3333,
+    name: 'Шагомер'
+  }
+];
+
 module.exports = {
-  patientDoctors: patientDoctors
+  patientDoctors: patientDoctors,
+  fio: fio,
+  devices: devices
 };

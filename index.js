@@ -18,12 +18,18 @@ app.use(function(req, res, next) {
 });
 
 app.use(function (req, res, next) {
+  console.log(req.originalUrl);
   setTimeout(function () {next();},1000);
 });
 
-app.get('/api/patient', function (req, res) {
-  res.send(patientData.patientDoctors);
-  console.log(patientData.patientDoctors);
+app.get('/api/login', function (req, res) {
+  var result = {
+    fio: patientData.fio,
+    doctors: patientData.patientDoctors,
+    devices: patientData.devices
+  };
+
+  res.send(result);
 });
 
 app.listen(process.env.PORT || 8080);
