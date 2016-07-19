@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
 
 app.use(function (req, res, next) {
   console.log(req.originalUrl);
-  setTimeout(function () {next();},1000);
+  setTimeout(function () {next();},500);
 });
 
 app.get('/api/login', function (req, res) {
@@ -27,6 +27,14 @@ app.get('/api/login', function (req, res) {
     fio: patientData.fio,
     doctors: patientData.patientDoctors,
     devices: patientData.devices
+  };
+
+  res.send(result);
+});
+
+app.get('/api/diary', function(req, res) {
+  var result = {
+    diary: patientData.diaryToday
   };
 
   res.send(result);
