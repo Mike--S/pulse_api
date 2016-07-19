@@ -76,6 +76,26 @@ var diaryToday = {
               value: ''
             }
           ]
+        },
+        {
+          id: 2,
+          title: 'ЧСС',
+          type: 'time',
+          hint: '70',
+          time: [
+            {
+              type: 'утро',
+              value: ''
+            },
+            {
+              type: 'день',
+              value: ''
+            },
+            {
+              type: 'вечер',
+              value: ''
+            }
+          ]
         }
       ]
     }
