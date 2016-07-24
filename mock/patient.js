@@ -29,72 +29,79 @@ var devices = [
 ];
 
 var diaryToday = {
-  health: "Очень хорошее",
+  healthBlock: {
+    text: "Очень хорошее"
+  },
   controlBlocks: [
     {
-      from: {
-        id: 1,
-        doctor: 'Угрюмов Олег Петрович'
-      },
+      id: 1, //id of user угрюмов олег петрович
+      doctor: 'Угрюмов Олег Петрович',
       timeParameters: [
         {
-          id: 1,
+          id: 'AT',
           title: 'Артериальное давление',
-          type: 'time',
-          hint: '100/10',
+          hint: '000/00',
           time: [
             {
-              type: 'утро',
+              type: 'AT_Morning',
+              label: 'утро',
               value: '100/60'
             },
             {
-              type: 'день',
+              type: 'AT_Day',
+              label: 'день',
               value: ''
             },
             {
-              type: 'вечер',
+              type: 'AT_Evening',
+              label: 'вечер',
               value: ''
             },
             {
-              type: 'ночь',
+              type: 'AT_Night',
+              label: 'ночь',
               value: ''
             }
           ]
         },
         {
-          id: 2,
+          id: 'CHSS',
           title: 'ЧСС',
-          type: 'time',
-          hint: '70',
+          hint: '00',
           time: [
             {
-              type: 'утро',
-              value: ''
+              type: 'CHSS_Morning',
+              label: 'утро',
+              value: '10'
             },
             {
-              type: 'день',
+              type: 'CHSS_Day',
+              label: 'день',
               value: ''
             }
           ]
         },
         {
-          id: 2,
-          title: 'ЧСС',
+          id: 'BLOOD',
+          title: 'Сахар крови',
           type: 'time',
-          hint: '70',
+          hint: '0.0',
           time: [
             {
-              type: 'утро',
+              type: 'BLOOD_Morning',
+              label: 'утро',
+              value: '3.3'
+            },
+            {
+              type: 'BLOOD_Day',
+              label: 'день',
               value: ''
             },
             {
-              type: 'день',
+              type: 'BLOOD_Evening',
+              label: 'вечер',
               value: ''
             },
-            {
-              type: 'вечер',
-              value: ''
-            }
           ]
         }
       ]
