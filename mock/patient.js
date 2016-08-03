@@ -36,29 +36,30 @@ var diaryToday = {
     {
       id: 1, //id of user угрюмов олег петрович
       doctor: 'Угрюмов Олег Петрович',
-      timeParameters: [
+      parameters: [
         {
           id: 'AT',
           title: 'Артериальное давление',
           hint: '000/00',
+          type: 'text',
           time: [
             {
-              type: 'AT_Morning',
+              id: 'AT_Morning',
               label: 'утро',
               value: '100/60'
             },
             {
-              type: 'AT_Day',
+              id: 'AT_Day',
               label: 'день',
               value: ''
             },
             {
-              type: 'AT_Evening',
+              id: 'AT_Evening',
               label: 'вечер',
               value: ''
             },
             {
-              type: 'AT_Night',
+              id: 'AT_Night',
               label: 'ночь',
               value: ''
             }
@@ -68,14 +69,15 @@ var diaryToday = {
           id: 'CHSS',
           title: 'ЧСС',
           hint: '00',
+          type: 'text',
           time: [
             {
-              type: 'CHSS_Morning',
+              id: 'CHSS_Morning',
               label: 'утро',
               value: '10'
             },
             {
-              type: 'CHSS_Day',
+              id: 'CHSS_Day',
               label: 'день',
               value: ''
             }
@@ -84,24 +86,66 @@ var diaryToday = {
         {
           id: 'BLOOD',
           title: 'Сахар крови',
-          type: 'time',
           hint: '0.0',
+          type: 'text',
           time: [
             {
-              type: 'BLOOD_Morning',
+              id: 'BLOOD_Morning',
               label: 'утро',
               value: '3.3'
             },
             {
-              type: 'BLOOD_Day',
+              id: 'BLOOD_Day',
               label: 'день',
               value: ''
             },
             {
-              type: 'BLOOD_Evening',
+              id: 'BLOOD_Evening',
               label: 'вечер',
               value: ''
             },
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
+      doctor: 'Иванов Иван Иванович',
+      parameters: [
+        {
+          id: 'TEMPERATURE',
+          title: 'Температура',
+          hint: '00.0',
+          type: 'text',
+          time: [
+            {
+              id: 'TEMPERATURE_MORNING',
+              label: 'утро',
+              value: ''
+            },
+            {
+              id: 'TEMPERATURE_EVENING',
+              label: 'вечер',
+              value: ''
+            }
+          ]
+        },
+        {
+          id: 'MOOD',
+          title: 'Настроение',
+          hint: '',
+          type: 'range',
+          time: [
+            {
+              id: 'MOOD_MORNING',
+              label: 'утро',
+              value: 0
+            },
+            {
+              id: 'MOOD_EVENING',
+              label: 'вечер',
+              value: 6
+            }
           ]
         }
       ]
