@@ -147,6 +147,23 @@ var diaryToday = {
               value: 6
             }
           ]
+        },
+        {
+          id: 'BOLZAGRUDINOI',
+          title: 'Боль за грудиной',
+          type: 'boolean',
+          time: [
+            {
+              id: 'BOLZAGRUDINOI_MORNING',
+              label: 'утро',
+              value: false
+            },
+            {
+              id: 'BOLZAGRUDINOI_DAY',
+              label: 'день',
+              value: false
+            }
+          ]
         }
       ]
     }

@@ -1,5 +1,6 @@
 var patientData = require('./mock/patient');
 var restify = require('restify');
+var _ = require('lodash');
 
 var app = restify.createServer();
 
@@ -47,6 +48,19 @@ app.get('/api/diary', function(req, res) {
 });
 
 app.post('/api/diary', function(req, res) {
+  var controlBlock = _.filter(global.diary.controlBlocks, function (controlBlock) {
+    return controlBlock.id === req.body.controlBlockId;
+  });
+  
+  _.forEach(controlBlock[0].parameters, function (param) {
+    _.forEach(param.time, function (timeParam) {
+      _.forEach(req.body.timeParams, function (postTimeParam) {
+        if (postTimeParam.value !== '' && postTimeParam.id === timeParam.id) {
+          timeParam.value = postTimeParam.value;
+        }
+      })
+    });
+  });
 
   res.send(200, {});
 });
