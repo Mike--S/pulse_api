@@ -1,7 +1,11 @@
 var patientData = require('./mock/patient');
-var bodyParser = require('body-parser');
-const express = require('express');
-const app = express();
+var restify = require('restify');
+
+var app = restify.createServer();
+
+app.use(restify.acceptParser(app.acceptable));
+app.use(restify.queryParser());
+app.use(restify.bodyParser());
 
 var global = {
   diary: patientData.diaryToday
@@ -10,7 +14,8 @@ var global = {
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Cache-Control');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  res.header('Access-Control-Allow-Credentials', true);
 
   // intercept OPTIONS method
   if ('OPTIONS' === req.method) {
@@ -20,12 +25,9 @@ app.use(function(req, res, next) {
   }
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(function (req, res, next) {
-  console.log(req.originalUrl);
-  setTimeout(function () {next();},500);
+  console.log(req.url);
+  setTimeout(function () {next();},0);
 });
 
 app.get('/api/login', function (req, res) {
@@ -46,7 +48,7 @@ app.get('/api/diary', function(req, res) {
 
 app.post('/api/diary', function(req, res) {
 
-  res.send({});
+  res.send(200, {});
 });
 
 app.listen(process.env.PORT || 8080);
