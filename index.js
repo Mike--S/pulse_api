@@ -56,7 +56,7 @@ app.get('/api/diary', function(req, res) {
     res.send(temp);
   }
   else {
-    res.send(global.diary);
+    res.send(global.diaryEmpty);
   }
 });
 
