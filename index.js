@@ -1,4 +1,5 @@
 var patientData = require('./mock/patient');
+var utils = require('./utils');
 var restify = require('restify');
 var _ = require('lodash');
 
@@ -9,7 +10,8 @@ app.use(restify.queryParser());
 app.use(restify.bodyParser());
 
 var global = {
-  diary: patientData.diaryToday
+  diary: patientData.diaryToday,
+  diaryEmpty: patientData.diaryEmpty
 };
 
 app.use(function(req, res, next) {
@@ -42,9 +44,20 @@ app.get('/api/login', function (req, res) {
 });
 
 app.get('/api/diary', function(req, res) {
-  var result = global.diary;
-
-  res.send(result);
+  if( !req.params || ( req.params.date && utils.compareDates(new Date(req.params.date), new Date()) ) ) {
+    res.send(global.diary)
+  }
+  else if (req.params.date && utils.compareDates(new Date(req.params.date), new Date(), 1)) {
+    var temp = _.cloneDeep(global.diary);
+    _.forEach(temp.controlBlocks, function (block) {
+      block.disabled = true;
+    });
+    temp.healthBlock.disabled = true;
+    res.send(temp);
+  }
+  else {
+    res.send(global.diary);
+  }
 });
 
 app.post('/api/control', function(req, res) {

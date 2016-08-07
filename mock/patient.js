@@ -176,8 +176,7 @@ var diaryToday = {
 };
 
 var diaryEmpty = {
-  health: "",
-  controlBlocks: []
+  
 };
 
 module.exports = {
@@ -185,4 +184,5 @@ module.exports = {
   fio: fio,
   devices: devices,
   diaryToday: diaryToday,
+  diaryEmpty: diaryEmpty
 };
