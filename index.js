@@ -44,7 +44,7 @@ app.get('/api/login', function (req, res) {
 });
 
 app.get('/api/diary', function(req, res) {
-  if( !req.params || ( req.params.date && utils.compareDates(new Date(req.params.date), new Date()) ) ) {
+  if( _.isEmpty(req.params) || ( req.params.date && utils.compareDates(new Date(req.params.date), new Date()) ) ) {
     res.send(global.diary)
   }
   else if (req.params.date && utils.compareDates(new Date(req.params.date), new Date(), 1)) {
