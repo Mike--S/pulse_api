@@ -1,3 +1,4 @@
+var today = new Date;
 var patientDoctors = {
   therapist: [
     'Угрюмов Олег Петрович'
@@ -172,11 +173,18 @@ var diaryToday = {
         }
       ]
     }
-  ]
+  ],
+  recommendations: {
+    id: 1,
+    doctor: 'Угрюмов Олег Петрович',
+    setDate: new Date(),
+    expireDate: new Date(today.setDate(today.getDate() + 1)),
+    text: 'Употребление меньшего количества соли, нормализация сна, здоровый образ жизни, просьба прийти на прием 26 октября'
+  }
 };
 
 var diaryEmpty = {
-  
+
 };
 
 module.exports = {
