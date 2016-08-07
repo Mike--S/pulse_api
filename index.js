@@ -47,7 +47,7 @@ app.get('/api/diary', function(req, res) {
   res.send(result);
 });
 
-app.post('/api/diary', function(req, res) {
+app.post('/api/control', function(req, res) {
   var controlBlock = _.filter(global.diary.controlBlocks, function (controlBlock) {
     return controlBlock.id === req.body.controlBlockId;
   });
@@ -62,6 +62,11 @@ app.post('/api/diary', function(req, res) {
     });
   });
 
+  res.send(200, {});
+});
+
+app.post('/api/health', function(req, res) {
+  global.diary.healthBlock.text = req.body.text;
   res.send(200, {});
 });
 

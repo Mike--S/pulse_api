@@ -162,6 +162,11 @@ var diaryToday = {
               id: 'BOLZAGRUDINOI_DAY',
               label: 'день',
               value: false
+            },
+            {
+              id: 'BOLZAGRUDINOI_2200',
+              label: '22:00',
+              value: false
             }
           ]
         }
