@@ -53,6 +53,7 @@ app.get('/api/diary', function(req, res) {
       block.disabled = true;
     });
     temp.healthBlock.disabled = true;
+    temp.selfControlBlock.disabled = true;
     res.send(temp);
   }
   else {
@@ -66,6 +67,20 @@ app.post('/api/control', function(req, res) {
   });
   
   _.forEach(controlBlock[0].parameters, function (param) {
+    _.forEach(param.time, function (timeParam) {
+      _.forEach(req.body.timeParams, function (postTimeParam) {
+        if (postTimeParam.value !== '' && postTimeParam.id === timeParam.id) {
+          timeParam.value = postTimeParam.value;
+        }
+      })
+    });
+  });
+
+  res.send(200, {});
+});
+
+app.post('/api/selfControl', function(req, res) {
+  _.forEach(global.diary.selfControlBlock.parameters, function (param) {
     _.forEach(param.time, function (timeParam) {
       _.forEach(req.body.timeParams, function (postTimeParam) {
         if (postTimeParam.value !== '' && postTimeParam.id === timeParam.id) {

@@ -180,6 +180,82 @@ var diaryToday = {
     setDate: new Date(),
     expireDate: new Date(today.setDate(today.getDate() + 1)),
     text: 'Употребление меньшего количества соли, нормализация сна, здоровый образ жизни, просьба прийти на прием 26 октября'
+  },
+  selfControlBlock: {
+    parameters: [
+      {
+        id: 'PULSE',
+        title: 'Пульс',
+        type: 'text',
+        time: [
+          {
+            id: 'PULSE_1000',
+            label: '10:00',
+            value: 70
+          },
+          {
+            id: 'PULSE_DAY',
+            label: 'день',
+            value: 80
+          },
+          {
+            id: 'PULSE_2200',
+            label: '22:00',
+            value: 60
+          }
+        ]
+      },
+      {
+        id: 'DYHANIE',
+        title: 'Дыхание',
+        type: 'text',
+        time: [
+          {
+            id: 'DYHANIE_1100',
+            label: '11:00',
+            value: 15
+          },
+          {
+            id: 'DYHANIE_1400',
+            label: '14:00',
+            value: ''
+          },
+          {
+            id: 'DYHANIE_2200',
+            label: '22:00',
+            value: ''
+          }
+        ]
+      },
+      {
+        id: 'AT',
+        title: 'Артериальное давление',
+        hint: '000/00',
+        type: 'text',
+        time: [
+          {
+            id: 'AT_Morning',
+            label: 'утро',
+            value: '100/60'
+          },
+          {
+            id: 'AT_Day',
+            label: 'день',
+            value: ''
+          },
+          {
+            id: 'AT_Evening',
+            label: 'вечер',
+            value: ''
+          },
+          {
+            id: 'AT_Night',
+            label: 'ночь',
+            value: ''
+          }
+        ]
+      },
+    ]
   }
 };
 
