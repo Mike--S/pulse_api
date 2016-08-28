@@ -61,6 +61,10 @@ app.get('/api/diary', function(req, res) {
   }
 });
 
+app.get('/api/parameters', function(req, res) {
+  res.send(200, patientData.params);
+});
+
 app.post('/api/control', function(req, res) {
   var controlBlock = _.filter(global.diary.controlBlocks, function (controlBlock) {
     return controlBlock.id === req.body.controlBlockId;

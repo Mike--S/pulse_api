@@ -263,10 +263,18 @@ var diaryEmpty = {
 
 };
 
+var params = [
+  'Вес',
+  'Сердечный ритм',
+  'Сахар крови',
+  'Чсс'
+];
+
 module.exports = {
   patientDoctors: patientDoctors,
   fio: fio,
   devices: devices,
   diaryToday: diaryToday,
-  diaryEmpty: diaryEmpty
+  diaryEmpty: diaryEmpty,
+  params: params
 };
