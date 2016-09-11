@@ -264,10 +264,11 @@ var diaryEmpty = {
 };
 
 var params = [
-  'Вес',
-  'Сердечный ритм',
-  'Сахар крови',
-  'Чсс'
+  {ID: 'AT', name: 'Артериальное давление', existedTimeValues: ['MORNING', 'DAY', 'EVENING', 'NIGHT']},
+  {ID: 'WEIGHT', name: 'Вес', existedTimeValues: []},
+  {ID: 'RHITM', name: 'Сердечный ритм', existedTimeValues: []},
+  {ID: 'BLOOD', name: 'Сахар крови', existedTimeValues: ['MORNING', 'DAY', 'EVENING']},
+  {ID: 'CHSS', name: 'Чсс', existedTimeValues: ['MORNING', 'DAY']}
 ];
 
 module.exports = {
