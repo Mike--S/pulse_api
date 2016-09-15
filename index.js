@@ -1,4 +1,4 @@
-var patientData = require('./mock/patient');
+var patientData = require('./mock/user');
 var utils = require('./utils');
 var restify = require('restify');
 var _ = require('lodash');
@@ -33,12 +33,46 @@ app.use(function (req, res, next) {
   setTimeout(function () {next();},0);
 });
 
-app.get('/api/login', function (req, res) {
-  var result = {
-    fio: patientData.fio,
-    doctors: patientData.patientDoctors,
-    devices: patientData.devices
-  };
+app.post('/api/login', function (req, res) {
+  var result;
+
+  if (req.body.login === 'doctor') {
+    result = {
+      type: 'doctor',
+      fio: patientData.doctorsFio,
+      patients: patientData.doctorsPatient
+    }
+  }
+  else {
+    result = {
+      type: 'patient',
+      fio: patientData.fio,
+      doctors: patientData.patientDoctors,
+      devices: patientData.devices
+    };
+  }
+
+  res.send(result);
+});
+
+app.get('/api/userData', function (req, res) {
+  var result;
+
+  if (req.params.name === 'doctor') {
+    result = {
+      type: 'doctor',
+      fio: patientData.doctorsFio,
+      patients: patientData.doctorsPatient
+    }
+  }
+  else {
+    result = {
+      type: 'patient',
+      fio: patientData.fio,
+      doctors: patientData.patientDoctors,
+      devices: patientData.devices
+    };
+  }
 
   res.send(result);
 });

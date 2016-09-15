@@ -6,13 +6,31 @@ var patientDoctors = {
   consultants: [
     'Семенов Сергей Петрович',
     'Глазырин Алексей Иванович',
-    'Глазырин Алексей Иванович',
-    'Глазырин Алексей Иванович',
-    'Глазырин Алексей Иванович'
+    'Иванов Иван Иванович',
+    'Петров Петр Петрович',
+    'Сидоров Сидор Сидорович'
+  ]
+};
+
+var doctorsPatient = {
+  selfPatients: [
+    'Еремин Виталий Викторович',
+    'Двинских Николай Петрович',
+    'Синицын Олег Викторович',
+    'Перевозчиков Сергей Петрович',
+    'Глазырина Вера Петровна'
+  ],
+  request: [
+    'Селина Ольга Петровна'
+  ],
+  onConsultation: [
+    'Селина Ольга Петровна',
+    'Федоринова Ирина Александровна'
   ]
 };
 
 var fio = 'Еремин Виталий Викторович';
+var doctorsFio = 'Глазырин Алексей Иванович';
 
 var devices = [
   {
@@ -273,7 +291,9 @@ var params = [
 
 module.exports = {
   patientDoctors: patientDoctors,
+  doctorsPatient: doctorsPatient,
   fio: fio,
+  doctorsFio: doctorsFio,
   devices: devices,
   diaryToday: diaryToday,
   diaryEmpty: diaryEmpty,
