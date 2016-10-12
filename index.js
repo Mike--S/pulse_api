@@ -57,8 +57,10 @@ app.post('/api/login', function (req, res) {
 
 app.get('/api/userData', function (req, res) {
   var result;
-
-  if (req.params.name === 'doctor') {
+  if (!req.params.name) {
+    result = {};
+  }
+  else if (req.params.name === 'doctor') {
     result = {
       type: 'doctor',
       fio: patientData.doctorsFio,
@@ -74,12 +76,15 @@ app.get('/api/userData', function (req, res) {
     };
   }
 
-  res.send(result);
+  res.send(!_.isEmpty(result) ? result: 404);
 });
 
 app.get('/api/diary', function(req, res) {
+  if (!_.isEmpty(req.params) && req.params.userId) {
+    
+  }
   if( _.isEmpty(req.params) || ( req.params.date && utils.compareDates(new Date(req.params.date), new Date()) ) ) {
-    res.send(global.diary)
+    res.send(global.diary);
   }
   else if (req.params.date && utils.compareDates(new Date(req.params.date), new Date(), 1)) {
     var temp = _.cloneDeep(global.diary);
